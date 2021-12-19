@@ -2,7 +2,7 @@
   vcr
 </h1>
 <h4 align="center">
-    A javascript library
+    2d vector functions
 </h4>
 
 <div align="center">
@@ -36,7 +36,17 @@ yarn add vcr
 
 ## :newspaper: API
 
-[sayHello](docs/sayHello.md) - Say hello
+- create
+- add
+- subtract
+- divide
+- multiply
+- floor
+- ceil
+- normalize
+- clone
+
+[Source](src/index.ts)
 
 ---
 
