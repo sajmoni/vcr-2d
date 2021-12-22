@@ -30,4 +30,14 @@ test('ceil', (t) => {
   t.deepEqual(vcr.ceil({ x: 10.456, y: 10.789 }), { x: 11, y: 11 })
 })
 
-test.todo('normalize')
+test('normalize', (t) => {
+  const vector = { x: 1, y: 1 }
+  const result = vcr.normalize(vector)
+  t.deepEqual(result, { x: 0.7071067811865475, y: 0.7071067811865475 })
+})
+
+test('normalize - y === 0', (t) => {
+  const vector = { x: 1, y: 0 }
+  const result = vcr.normalize(vector)
+  t.deepEqual(result, { x: 1, y: 0 })
+})
