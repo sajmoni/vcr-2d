@@ -30,6 +30,13 @@ test('ceil', (t) => {
   t.deepEqual(vcr.ceil({ x: 10.456, y: 10.789 }), { x: 11, y: 11 })
 })
 
+test('clone', (t) => {
+  const original = { x: 10, y: 10 }
+  const clone = vcr.clone(original)
+  t.deepEqual(original, clone)
+  t.not(original, clone)
+})
+
 test('normalize', (t) => {
   const vector = { x: 1, y: 1 }
   const result = vcr.normalize(vector)
