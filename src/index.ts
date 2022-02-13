@@ -1,50 +1,39 @@
-// Simple 2d vector functions. It's not an exhaustive list.
+import { Vector } from './pure'
 
-export type Vector = {
-  x: number
-  y: number
+export const add = (vector: Vector, value: number): void => {
+  vector.x += value
+  vector.y += value
 }
 
-export const create = (x: number, y: number): Vector => {
-  return { x, y }
+export const subtract = (vector: Vector, value: number): void => {
+  vector.x -= value
+  vector.y -= value
 }
 
-export const add = (vector: Vector, value: number): Vector => ({
-  x: vector.x + value,
-  y: vector.y + value,
-})
-
-export const subtract = (vector: Vector, value: number): Vector => ({
-  x: vector.x - value,
-  y: vector.y - value,
-})
-
-export const divide = (vector: Vector, value: number): Vector => ({
-  x: vector.x / value,
-  y: vector.y / value,
-})
-
-export const multiply = (vector: Vector, value: number): Vector => ({
-  x: vector.x * value,
-  y: vector.y * value,
-})
-
-export const floor = (vector: Vector): Vector => ({
-  x: Math.floor(vector.x),
-  y: Math.floor(vector.y),
-})
-
-export const ceil = (vector: Vector): Vector => ({
-  x: Math.ceil(vector.x),
-  y: Math.ceil(vector.y),
-})
-
-export const normalize = ({ x, y }: Vector): Vector => {
-  const magnitude = Math.sqrt(x ** 2 + y ** 2)
-  return {
-    x: x / magnitude ?? 0,
-    y: y / magnitude ?? 0,
-  }
+export const divide = (vector: Vector, value: number): void => {
+  vector.x /= value
+  vector.y /= value
 }
 
-export const clone = (vector: Vector): Vector => ({ x: vector.x, y: vector.y })
+export const multiply = (vector: Vector, value: number): void => {
+  vector.x *= value
+  vector.y *= value
+}
+
+export const floor = (vector: Vector): void => {
+  vector.x = Math.floor(vector.x)
+  vector.y = Math.floor(vector.y)
+}
+
+export const ceil = (vector: Vector): void => {
+  vector.x = Math.ceil(vector.x)
+  vector.y = Math.ceil(vector.y)
+}
+
+export const normalize = (vector: Vector): void => {
+  const magnitude = Math.sqrt(vector.x ** 2 + vector.y ** 2)
+  vector.x = vector.x / magnitude ?? 0
+  vector.y = vector.y / magnitude ?? 0
+}
+
+export { clone, create, type Vector } from './pure'

@@ -10,16 +10,16 @@
   <img src="https://badgen.net/bundlephobia/minzip/vcr" />
 </div>
 
-## :sparkles: Features
+## :sparkles: Features <!-- omit in toc -->
 
 - Uses TypeScript
-- Immutable
+- Immutable and mutable APIs
 - Zero dependencies
 
 ---
 
-- [:sparkles: Features](#sparkles-features)
 - [:wrench: Example usage](#wrench-example-usage)
+  - [Pure](#pure)
 - [:package: Install](#package-install)
 - [:newspaper: API](#newspaper-api)
   - [create](#create)
@@ -38,9 +38,29 @@
 import * as vcr from 'vcr'
 
 const vector = vcr.create(10, 10)
+console.log(vector)
 // { x: 10, y: 10}
-const vector2 = vcr.add(vector, 5)
+
+vcr.add(vector, 5)
+// console.log(vector)
 // { x: 15, y: 15 }
+```
+
+### Pure
+
+```ts
+import * as vcr from 'vcr/pure'
+
+const vector = vcr.create(10, 10)
+console.log(vector)
+// { x: 10, y: 10}
+
+const newVector = vcr.add(vector, 5)
+console.log(newVector)
+// { x: 15, y: 15 }
+
+console.log(vector)
+// { x: 10, y: 10 }
 ```
 
 ---
@@ -63,67 +83,80 @@ yarn add vcr
 
 ## :newspaper: API
 
+> Standard
+
+```ts
+import * as vcr from 'vcr'
+```
+
+> Pure
+
+```ts
+import * as vcr from 'vcr/pure'
+```
+
 ### create
 
 ```ts
-const vector = vcr.add({ x: 10, y: 10 }, 5)
-// { x: 15, y: 15 }
+vcr.create({ x: 10, y: 10 })
+// { x: 10, y: 10 }
 ```
 
 ### add
 
 ```ts
-const vector = vcr.add({ x: 10, y: 10 }, 5)
+vcr.add({ x: 10, y: 10 }, 5)
 // { x: 15, y: 15 }
 ```
 
 ### subtract
 
 ```ts
-const vector = vcr.subtract({ x: 10, y: 10 }, 5)
+vcr.subtract({ x: 10, y: 10 }, 5)
 // { x: 5, y: 5 }
 ```
 
 ### divide
 
 ```ts
-const vector = vcr.divide({ x: 15, y: 15 }, 5)
+vcr.divide({ x: 15, y: 15 }, 5)
 // { x: 3, y: 3 }
 ```
 
 ### multiply
 
 ```ts
-const vector = vcr.multiply({ x: 10, y: 10 }, 5)
+vcr.multiply({ x: 10, y: 10 }, 5)
 // { x: 50, y: 50 }
 ```
 
 ### floor
 
 ```ts
-const vector = vcr.floor({ x: 10.456, y: 10.789 })
+vcr.floor({ x: 10.456, y: 10.789 })
 // { x: 10, y: 10 }
 ```
 
 ### ceil
 
 ```ts
-const vector = vcr.ceil({ x: 10.456, y: 10.789 })
+vcr.ceil({ x: 10.456, y: 10.789 })
 // { x: 11, y: 11 }
 ```
 
 ### normalize
 
 ```ts
-const vector = vcr.normalize({ x: 1, y: 1 })
+vcr.normalize({ x: 1, y: 1 })
 // { x: 0.7071067811865475, y: 0.7071067811865475 }
 ```
 
 ### clone
 
 ```ts
-const vector = vcr.clone({ x: 10, y: 10 })
+vcr.clone({ x: 10, y: 10 })
 // { x: 10, y: 10 }
 ```
 
 [Source](src/index.ts)
+[Source - Pure](src/pure.ts)

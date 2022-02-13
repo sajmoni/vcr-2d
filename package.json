@@ -12,6 +12,20 @@
     "test": "ava"
   },
   "main": "dist/index.js",
+  "exports": {
+    "./pure": "./dist/pure.js",
+    ".": "./dist/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "pure": [
+        "dist/pure.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist/"
   ],
