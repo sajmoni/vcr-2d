@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import * as vcrPure from 'vcr/pure'
+import * as vcrPure from 'vcr-2d/pure'
 
 test('create - pure', (t) => {
   t.deepEqual(vcrPure.create(10, 10), { x: 10, y: 10 })

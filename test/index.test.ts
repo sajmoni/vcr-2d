@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import * as vcr from 'vcr'
+import * as vcr from 'vcr-2d'
 
 test('create', (t) => {
   t.deepEqual(vcr.create(10, 10), { x: 10, y: 10 })
