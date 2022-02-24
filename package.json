@@ -29,9 +29,6 @@
   "files": [
     "dist/"
   ],
-  "directories": {
-    "example": "example"
-  },
   "ava": {
     "require": [
       "esbuild-runner/register"

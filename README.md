@@ -159,4 +159,5 @@ clone({ x: 10, y: 10 })
 ```
 
 [Source](src/index.ts)
+
 [Source - Pure](src/pure.ts)
