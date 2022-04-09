@@ -48,3 +48,9 @@ test('normalize - pure - y === 0', (t) => {
   const result = vcrPure.normalize(vector)
   t.deepEqual(result, { x: 1, y: 0 })
 })
+
+test('normalize - pure - 0 0', (t) => {
+  const vector = { x: 0, y: 0 }
+  const result = vcrPure.normalize(vector)
+  t.deepEqual(result, { x: 0, y: 0 })
+})

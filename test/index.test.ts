@@ -60,3 +60,9 @@ test('normalize - y === 0', (t) => {
   vcr.normalize(vector)
   t.deepEqual(vector, { x: 1, y: 0 })
 })
+
+test('normalize - 0 0', (t) => {
+  const vector = { x: 0, y: 0 }
+  vcr.normalize(vector)
+  t.deepEqual(vector, { x: 0, y: 0 })
+})

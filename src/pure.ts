@@ -41,9 +41,13 @@ export const ceil = (vector: Vector): Vector => ({
 
 export const normalize = ({ x, y }: Vector): Vector => {
   const magnitude = Math.sqrt(x ** 2 + y ** 2)
+  if (magnitude === 0) {
+    return { x: 0, y: 0 }
+  }
+
   return {
-    x: x / magnitude ?? 0,
-    y: y / magnitude ?? 0,
+    x: x / magnitude,
+    y: y / magnitude,
   }
 }
 

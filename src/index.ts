@@ -32,8 +32,13 @@ export const ceil = (vector: Vector): void => {
 
 export const normalize = (vector: Vector): void => {
   const magnitude = Math.sqrt(vector.x ** 2 + vector.y ** 2)
-  vector.x = vector.x / magnitude ?? 0
-  vector.y = vector.y / magnitude ?? 0
+  if (magnitude === 0) {
+    vector.x = 0
+    vector.y = 0
+  } else {
+    vector.x /= magnitude
+    vector.y /= magnitude
+  }
 }
 
 export { clone, create, type Vector } from './pure'
