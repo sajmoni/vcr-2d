@@ -30,6 +30,10 @@ test('ceil - pure', (t) => {
   t.deepEqual(vcrPure.ceil({ x: 10.456, y: 10.789 }), { x: 11, y: 11 })
 })
 
+test('round - pure', (t) => {
+  t.deepEqual(vcrPure.round({ x: 10.456, y: 10.789 }), { x: 10, y: 11 })
+})
+
 test('clone - pure', (t) => {
   const original = { x: 10, y: 10 }
   const clone = vcrPure.clone(original)

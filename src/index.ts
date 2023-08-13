@@ -30,6 +30,11 @@ export const ceil = (vector: Vector): void => {
   vector.y = Math.ceil(vector.y)
 }
 
+export const round = (vector: Vector): void => {
+  vector.x = Math.round(vector.x)
+  vector.y = Math.round(vector.y)
+}
+
 export const normalize = (vector: Vector): void => {
   const magnitude = Math.sqrt(vector.x ** 2 + vector.y ** 2)
   if (magnitude === 0) {

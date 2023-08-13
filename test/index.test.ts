@@ -42,6 +42,12 @@ test('ceil', (t) => {
   t.deepEqual(vector, { x: 11, y: 11 })
 })
 
+test('round', (t) => {
+  const vector = { x: 10.456, y: 10.789 }
+  vcr.round(vector)
+  t.deepEqual(vector, { x: 10, y: 11 })
+})
+
 test('clone', (t) => {
   const original = { x: 10, y: 10 }
   const clone = vcr.clone(original)
