@@ -8,6 +8,10 @@
     "vector",
     "2d"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajmoni/vc2-2d.git"
+  },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "qa": "tsc && xo --fix",
