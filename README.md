@@ -5,16 +5,11 @@
     2d vector functions
 </h4>
 
-<div align="center">
-  <img src="https://badgen.net/npm/v/vcr-2d?icon=npm" />
-  <img src="https://badgen.net/bundlephobia/minzip/vcr-2d" />
-</div>
-
 ## :sparkles: Features <!-- omit in toc -->
 
-- Uses TypeScript
 - Immutable and mutable APIs
 - Zero dependencies
+- Fully typed
 
 ---
 
@@ -41,6 +36,8 @@ const vector = vcr.create(10, 10)
 console.log(vector)
 // { x: 10, y: 10}
 
+vcr.add(vector, { x: 5, y: 5 })
+// If both x and y are the same, you can use the shorthand
 vcr.add(vector, 5)
 console.log(vector)
 // { x: 15, y: 15 }
@@ -67,16 +64,8 @@ console.log(vector)
 
 ## :package: Install
 
-**npm**
-
-```
+```console
 npm install vcr-2d
-```
-
-**yarn**
-
-```
-yarn add vcr-2d
 ```
 
 ---

@@ -1,74 +1,73 @@
-import test from 'ava'
+import { test, expect } from 'vitest'
 
-import * as vcr from 'vcr-2d'
+import * as vcr from '../src/index.js'
 
-test('create', (t) => {
-  t.deepEqual(vcr.create(10, 10), { x: 10, y: 10 })
+test('create', () => {
+  expect(vcr.create(10, 10)).toEqual({ x: 10, y: 10 })
 })
 
-test('add', (t) => {
+test('add', () => {
   const vector = { x: 10, y: 10 }
   vcr.add(vector, 5)
-  t.deepEqual(vector, { x: 15, y: 15 })
+  expect(vector).toEqual({ x: 15, y: 15 })
 })
 
-test('subtract', (t) => {
+test('subtract', () => {
   const vector = { x: 10, y: 10 }
   vcr.subtract(vector, 5)
-  t.deepEqual(vector, { x: 5, y: 5 })
+  expect(vector).toEqual({ x: 5, y: 5 })
 })
 
-test('divide', (t) => {
+test('divide', () => {
   const vector = { x: 15, y: 15 }
   vcr.divide(vector, 5)
-  t.deepEqual(vector, { x: 3, y: 3 })
+  expect(vector).toEqual({ x: 3, y: 3 })
 })
 
-test('multiply', (t) => {
+test('multiply', () => {
   const vector = { x: 10, y: 10 }
   vcr.multiply(vector, 5)
-  t.deepEqual(vector, { x: 50, y: 50 })
+  expect(vector).toEqual({ x: 50, y: 50 })
 })
 
-test('floor', (t) => {
+test('floor', () => {
   const vector = { x: 10.456, y: 10.789 }
   vcr.floor(vector)
-  t.deepEqual(vector, { x: 10, y: 10 })
+  expect(vector).toEqual({ x: 10, y: 10 })
 })
 
-test('ceil', (t) => {
+test('ceil', () => {
   const vector = { x: 10.456, y: 10.789 }
   vcr.ceil(vector)
-  t.deepEqual(vector, { x: 11, y: 11 })
+  expect(vector).toEqual({ x: 11, y: 11 })
 })
 
-test('round', (t) => {
+test('round', () => {
   const vector = { x: 10.456, y: 10.789 }
   vcr.round(vector)
-  t.deepEqual(vector, { x: 10, y: 11 })
+  expect(vector).toEqual({ x: 10, y: 11 })
 })
 
-test('clone', (t) => {
+test('clone', () => {
   const original = { x: 10, y: 10 }
   const clone = vcr.clone(original)
-  t.deepEqual(original, clone)
-  t.not(original, clone)
+  expect(original).to.not.equal(clone)
 })
 
-test('normalize', (t) => {
+test('normalize', () => {
   const vector = { x: 1, y: 1 }
   vcr.normalize(vector)
-  t.deepEqual(vector, { x: 0.7071067811865475, y: 0.7071067811865475 })
+  expect(vector).toEqual({ x: 0.7071067811865475, y: 0.7071067811865475 })
 })
 
-test('normalize - y === 0', (t) => {
+test('normalize - y === 0', () => {
   const vector = { x: 1, y: 0 }
   vcr.normalize(vector)
-  t.deepEqual(vector, { x: 1, y: 0 })
+  expect(vector).toEqual({ x: 1, y: 0 })
 })
 
-test('normalize - 0 0', (t) => {
+test('normalize - 0 0', () => {
   const vector = { x: 0, y: 0 }
   vcr.normalize(vector)
-  t.deepEqual(vector, { x: 0, y: 0 })
+  expect(vector).toEqual({ x: 0, y: 0 })
 })

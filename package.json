@@ -3,13 +3,17 @@
   "license": "MIT",
   "version": "0.0.2",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "vector functions",
+    "vector",
+    "2d"
+  ],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "qa": "tsc && xo --fix",
     "go": "npm run build && preview && ava",
     "release": "npm run build && np --no-tests",
-    "test": "ava"
+    "test": "vitest"
   },
   "main": "dist/index.js",
   "exports": {
@@ -29,34 +33,11 @@
   "files": [
     "dist/"
   ],
-  "ava": {
-    "require": [
-      "esbuild-runner/register"
-    ],
-    "extensions": [
-      "ts"
-    ]
-  },
   "prettier": "prettier-config-one",
-  "xo": {
-    "prettier": true,
-    "env": [
-      "es2020",
-      "node"
-    ],
-    "rules": {
-      "import/no-extraneous-dependencies": "off",
-      "unicorn/filename-case": "off",
-      "capitalized-comments": "off"
-    }
-  },
   "devDependencies": {
-    "ava": "4.0.1",
-    "esbuild-runner": "2.2.1",
-    "np": "7.6.0",
-    "package-preview": "4.0.0",
-    "prettier-config-one": "0.2.0",
-    "typescript": "4.5.5",
-    "xo": "0.48.0"
+    "np": "10.2.0",
+    "prettier-config-one": "0.2.1",
+    "typescript": "5.8.2",
+    "vitest": "3.0.8"
   }
 }
