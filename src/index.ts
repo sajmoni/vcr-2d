@@ -1,23 +1,43 @@
 import { Vector } from './pure'
 
-export const add = (vector: Vector, value: number): void => {
-  vector.x += value
-  vector.y += value
+export const add = (vector: Vector, value: number | Vector): void => {
+  if (typeof value === 'number') {
+    vector.x += value
+    vector.y += value
+  } else {
+    vector.x += value.x
+    vector.y += value.y
+  }
 }
 
-export const subtract = (vector: Vector, value: number): void => {
-  vector.x -= value
-  vector.y -= value
+export const subtract = (vector: Vector, value: number | Vector): void => {
+  if (typeof value === 'number') {
+    vector.x -= value
+    vector.y -= value
+  } else {
+    vector.x -= value.x
+    vector.y -= value.y
+  }
 }
 
-export const divide = (vector: Vector, value: number): void => {
-  vector.x /= value
-  vector.y /= value
+export const divide = (vector: Vector, value: number | Vector): void => {
+  if (typeof value === 'number') {
+    vector.x /= value
+    vector.y /= value
+  } else {
+    vector.x /= value.x
+    vector.y /= value.y
+  }
 }
 
-export const multiply = (vector: Vector, value: number): void => {
-  vector.x *= value
-  vector.y *= value
+export const multiply = (vector: Vector, value: number | Vector): void => {
+  if (typeof value === 'number') {
+    vector.x *= value
+    vector.y *= value
+  } else {
+    vector.x *= value.x
+    vector.y *= value.y
+  }
 }
 
 export const floor = (vector: Vector): void => {

@@ -9,25 +9,49 @@ export const create = (x: number, y: number): Vector => {
   return { x, y }
 }
 
-export const add = (vector: Vector, value: number): Vector => ({
-  x: vector.x + value,
-  y: vector.y + value,
-})
+export const add = (vector: Vector, value: number | Vector): Vector =>
+  typeof value === 'number' ?
+    {
+      x: vector.x + value,
+      y: vector.y + value,
+    }
+  : {
+      x: vector.x + vector.x,
+      y: vector.y + vector.y,
+    }
 
-export const subtract = (vector: Vector, value: number): Vector => ({
-  x: vector.x - value,
-  y: vector.y - value,
-})
+export const subtract = (vector: Vector, value: number | Vector): Vector =>
+  typeof value === 'number' ?
+    {
+      x: vector.x - value,
+      y: vector.y - value,
+    }
+  : {
+      x: vector.x - value.x,
+      y: vector.y - value.y,
+    }
 
-export const divide = (vector: Vector, value: number): Vector => ({
-  x: vector.x / value,
-  y: vector.y / value,
-})
+export const divide = (vector: Vector, value: number | Vector): Vector =>
+  typeof value === 'number' ?
+    {
+      x: vector.x / value,
+      y: vector.y / value,
+    }
+  : {
+      x: vector.x / value.x,
+      y: vector.y / value.y,
+    }
 
-export const multiply = (vector: Vector, value: number): Vector => ({
-  x: vector.x * value,
-  y: vector.y * value,
-})
+export const multiply = (vector: Vector, value: number | Vector): Vector =>
+  typeof value === 'number' ?
+    {
+      x: vector.x * value,
+      y: vector.y * value,
+    }
+  : {
+      x: vector.x * value.x,
+      y: vector.y * value.y,
+    }
 
 export const floor = (vector: Vector): Vector => ({
   x: Math.floor(vector.x),
