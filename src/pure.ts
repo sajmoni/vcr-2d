@@ -81,3 +81,10 @@ export const normalize = ({ x, y }: Vector): Vector => {
 }
 
 export const clone = (vector: Vector): Vector => ({ x: vector.x, y: vector.y })
+
+export function dot(
+  { x: x1, y: y1 }: Vector,
+  { x: x2, y: y2 }: Vector,
+): number {
+  return x1 * x2 + y1 * y2
+}

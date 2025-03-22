@@ -57,3 +57,24 @@ test('normalize - pure - 0 0', () => {
   const result = vcrPure.normalize(vector)
   expect(result).toEqual({ x: 0, y: 0 })
 })
+
+test('dot - pure - 0', () => {
+  const vector1 = { x: 0, y: 0 }
+  const vector2 = { x: 0, y: 1 }
+  const result = vcrPure.dot(vector1, vector2)
+  expect(result).toEqual(0)
+})
+
+test('dot - pure - -1', () => {
+  const vector1 = vcrPure.normalize({ x: 1, y: 1 })
+  const vector2 = vcrPure.normalize({ x: -1, y: -1 })
+  const result = vcrPure.dot(vector1, vector2)
+  expect(result).toBeCloseTo(-1)
+})
+
+test('dot - pure - 1', () => {
+  const vector1 = vcrPure.normalize({ x: 1, y: 1 })
+  const vector2 = vcrPure.normalize({ x: 1, y: 1 })
+  const result = vcrPure.dot(vector1, vector2)
+  expect(result).toBeCloseTo(1)
+})

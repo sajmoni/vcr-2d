@@ -71,3 +71,31 @@ test('normalize - 0 0', () => {
   vcr.normalize(vector)
   expect(vector).toEqual({ x: 0, y: 0 })
 })
+
+test('dot - 0', () => {
+  const vector1 = { x: 0, y: 0 }
+  const vector2 = { x: 0, y: 1 }
+
+  const result = vcr.dot(vector1, vector2)
+  expect(result).toEqual(0)
+})
+
+test('dot - -1', () => {
+  const vector1 = { x: 1, y: 1 }
+  vcr.normalize(vector1)
+  const vector2 = { x: -1, y: -1 }
+  vcr.normalize(vector2)
+
+  const result = vcr.dot(vector1, vector2)
+  expect(result).toBeCloseTo(-1)
+})
+
+test('dot - 1', () => {
+  const vector1 = { x: 1, y: 1 }
+  vcr.normalize(vector1)
+  const vector2 = { x: 1, y: 1 }
+  vcr.normalize(vector2)
+
+  const result = vcr.dot(vector1, vector2)
+  expect(result).toBeCloseTo(1)
+})

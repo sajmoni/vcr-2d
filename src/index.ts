@@ -66,4 +66,4 @@ export const normalize = (vector: Vector): void => {
   }
 }
 
-export { clone, create, type Vector } from './pure'
+export { clone, create, type Vector, dot } from './pure'
